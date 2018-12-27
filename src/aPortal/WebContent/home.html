@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store,no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<title>工作台</title>
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/video-js.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="h5Phone/CloudIPCC_SDK.js"></script>
+<script src="h5Phone/sipInfo.js"></script>
+<script src="h5Phone/h5PhoneCall.js"></script>
+<script src="js/lib/jquery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+function checkBrower(){
+	if (_isChrome()){
+		if (_getChromeVersion() < 56){
+			document.getElementById('login_phone_num_submit').disabled="true";
+			alert('Chrome浏览器版本太低，请先升级到最新版本!');
+		}
+		return;
+	}else if (_isFF()){
+		if (_getFirefoxVersion() < 45){
+			document.getElementById('login_phone_num_submit').disabled="true";
+			alert('Firefox浏览器版本太低，请先升级到最新版本!');
+		}
+		return;
+	}
+	else if (_isIE11()){
+		return;
+	}
+	else {
+		document.getElementById('login_phone_num_submit').disabled="true";
+		alert('只支持IE11、Chrome、Firefox浏览器，请更换浏览器！');
+		return;
+	}
+};
+
+
+function _isChrome(){
+	return navigator.userAgent.indexOf("Chrome") > -1;
+};
+
+function _isFF(){
+	return navigator.userAgent.indexOf("Firefox") > -1;
+};
+
+function _isIE11(){
+	return navigator.userAgent.indexOf("Trident") > -1 && navigator.userAgent.indexOf("rv:11.0") > -1;
+};
+
+function _getChromeVersion(){
+	var arr = navigator.userAgent.split(' '); 
+    var chromeVersion = '';
+    for(var i=0;i < arr.length; i++){
+        if(/chrome/i.test(arr[i])){
+        	chromeVersion = arr[i];
+        }
+    }
+    if(chromeVersion){
+		return Number(chromeVersion.split('/')[1].split('.')[0]);
+	}
+	return 0;
+};
+    
+function _getFirefoxVersion(){
+	var arr = navigator.userAgent.split(' '); 
+    var firefoxVersion = '';
+    for(var i = 0; i < arr.length; i++){
+        if(/firefox/i.test(arr[i])){
+        	firefoxVersion = arr[i];
+        }
+    }
+    if(firefoxVersion){
+		return Number(firefoxVersion.split('/')[1].split('.')[0]);
+	}
+	return 0;
+};
+
+
+if (location.href.indexOf("#") > -1)
+{
+	window.location = "home.html";
+
+}
+</script>
+</head>
+<body>
+	<div class="welcome-page" id="welcome-page_div">
+		<div style="position: absolute; left: 50%; top: 50%; z-index: 9999; margin: 0px;">
+			<div style="position: fixed; z-index: 10000; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 370px;">
+				<div class="login-content">
+					<div class="login-header" >
+						<span class="i18n" i18nkey="loginframe.sign.login">座席登录</span>
+					</div>
+					<div id="home_login_body" class="login-body" style="height: 270px;">
+						<div id="home_account" class="login-body-input" style="display: none;">
+							<input id="login_phone_num_account_input" class="form-control input-sm" placeholder="请输入帐号" type="text" maxlength="5" autocomplete="off">
+							<em class="login_account"></em>
+						</div>
+						<div id="home_account_tip" class="login-body-tip" style="display: none;">
+							<div id="login_phone_num_account_tip" class="fa fa-info-circle fa-lg" style="color: red;display: none"></div>
+						</div>
+						
+						<div id="home_agentid" class="login-body-input" style="">
+							<input id="login_phone_num_agent_input" class="form-control" type="text" maxlength="5" placeholder="请输入工号" value="" autocomplete="off">
+							<em class="login_account"></em>
+						</div>
+						<div id="home_agentid_tip" class="login-body-tip" style="">
+							<div id="login_phone_num_agent_input_tip" class="fa fa-info-circle fa-lg" style="color: red;display: none"></div>
+						</div> 
+						<div id="home_phonenum" class="login-body-input" style="">
+							<input id="login_phone_num_input" class="form-control input-sm" placeholder="请输入电话" type="text" maxlength="24" onblur="loginPage_onblur(this.id);" value="" autocomplete="off">
+							<em class="login_phone"></em>
+						</div>
+						<div id="home_phonenum_tip" class="login-body-tip" style="">
+							<div id="login_phone_num_input_tip" class="fa fa-info-circle fa-lg" style="color: red;display: none"></div>
+						</div>
+						
+						<div class="login-body-input">
+							<input id="login_phone_password_input" class="form-control input-sm" type="password" maxlength="32" placeholder="请输入密码" autocomplete="off" onblur="loginPage_onblur(this.id);">
+							<em class="login_passwd"></em>
+						</div>
+						<div class="login-body-tip">
+							<div id="login_phone_password_input_tip" class="fa fa-info-circle fa-lg" style="color: red;display: none"></div>
+						</div>
+						<div class="login-body-input" id="login_phone_verifycode_div" style="display:none">
+							<input id="login_phone_verifycode_input" class="form-control input-sm" type="text" maxlength="4" style="width: 100px" placeholder="请输入验证码" autocomplete="off" onblur="loginPage_onblur(this.id);">
+							<img id="login_phone_verifycode_img" style="width:80px;height:30px">&nbsp;&nbsp;
+							<a href="#"><span id="login_phone_verifycode_img_span" class="change_verification_code_img">换一张</span></a>
+						</div>
+						<div class="login-body-tip">
+							<div id="login_phone_verifycode_input_tip" class="fa fa-info-circle fa-lg" style="color: red;display: none"></div>
+						</div>
+					</div>
+					<div class="text-center" style="padding: 0px 0px 30px 0px;">
+						<button id="login_phone_num_submit" type="button"
+							data-dismiss="modal" class="btn btn-sm btn-success i18n"
+							i18nkey="common.msg.box.btn.ok" style="background: #209cff; width: 298px;font-size:16px" >登 录</button>
+					</div>		
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="work-page" style="display: none;">
+    <header id="head">
+		<a class="logo pull-left">
+			<span class="logo-huawei"></span>
+        </a>
+        <div class="pull-left">
+	        <div id="top_msg"></div>
+        </div>
+		<div class="pull-right" id="pull-right-tool">
+			<div id="top_status" class="pull-left relative pr-2" style="padding-top: 7px; height: 50px;"></div>
+			
+			<div class="top-sign-info">
+				<p id="top_sign_agent_info" class="text-ellipsis m-0">
+					<span id="top_sign_agent_info_showname"></span>:
+					<span id="top_sign_agent_info_text">-</span>
+				</p><br>
+				<p id="top_sign_phone_info" class="text-ellipsis">
+					<span id="top_sign_phone_style" i18nKey="top.sign.phonenum">电 话</span>:
+					<span id="top_sign_phone_info_text">-</span>
+				</p>
+			</div>
+		
+	        <span id="top_system_img" class="icon-set fa-lg mr-25px pointer"  title="系统设置"></span>	    
+	        <span id="top_sign_img" class="breath pointer i18n" i18nKey="top.sign.signin">签入</span>
+		</div>
+    </header>
+    <div></div>
+	<aside id="menu"></aside>
+	<div id="top_phone" class="phone-status-bar bg-info-x clearfix"></div>
+	<main id="main_work">
+		<button class="pull-left px-1 bg-white text-primary border-none" style="line-height:30px;display:none;" id="menu_card_left">
+			<span aria-hidden="true" class="fa fa-angle-left text-16px"></span>
+		</button>
+		<div id="menu_card_panel" style="float:left;overflow-x:hidden;">
+			<div class="nav-tab" id="menu_card_container"></div>
+		</div>
+		<button class="pull-left px-1 bg-white text-primary border-none absolute" style="line-height:30px;display:none; top: 0; right: 0;" id="menu_card_right">
+			<span aria-hidden="true" class="fa fa-angle-right text-16px"></span>
+		</button>
+		<div class="bg-white" id="work">
+			<div id="home_work_home_banner" style="display:none;">
+				<div id="home_work_home_banner_backgound">
+					<div id="home_work_home_banner_text" class="home_main_txt"></div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div id="top_phone_show_btn" class="phone-status-bar-show pointer">
+		<span class="fa fa-phone fa-lg" style="padding: 6px 12px;"></span>
+	</div>
+	<div class="masking" id="note_masking" style="display:none;position:fixed;"></div>
+	<div class="masking" style="display:none;z-index:10001">
+		<button type="button" id="img-close" class='img-close'>&times;</button>
+		<div class="center">
+			<img src="" id="imgSrc">
+		</div>
+	</div>
+	<audio id="home_phoneRing" src="voice/phone/ring/1.mp3" controls="controls" hidden="true" loop="true" preload="true"></audio>
+	<div class="dialog-msg text-gray" id="note_div" style="z-index: 10000; display:none"></div>
+	<div class="menu_title_tips">
+		<span></span>
+	</div>
+	<div class="title_tips">
+		<i></i>
+		<span></span>
+	</div>
+	</div>
+        
+    <!-- 软电话 -->
+	<span id="bg_music"></span>
+	<script src="js/lib/require/require.js"></script>
+
+	<script type="text/javascript">
+	checkBrower();
+	(function(){
+		var env = '${package.env}';
+		var version = '${package.version}';
+			
+		if (/^\$/.test(env || '')){
+			version = new Date().getTime();
+		}
+			
+		require.config({
+			baseUrl : 'js',
+			urlArgs : 'v='+ version
+		});
+			
+		require(['main']);
+	})();
+	
+	function loginPage_onblur(id)
+	{
+		//$('#' + id +"_tip").hide();
+	}
+	
+	</script>
+	
+	
+  	
+  </body>
+</html>

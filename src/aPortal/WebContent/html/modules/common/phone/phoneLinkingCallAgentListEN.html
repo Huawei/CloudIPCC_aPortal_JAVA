@@ -1,0 +1,28 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr class="info">
+        <th width="60"></th>
+        <th>name</th>
+        <th width="100">number</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{{if result.length == 0}}
+	    <tr>
+	        <td colspan="5" class="text-center">
+	            <span class="fa fa-exclamation-circle fa-lg text-info"></span> <span class="i18n" i18nKey="common.query.nodata">No Data</span>
+	        </td>
+	    </tr>
+	{{/if}}
+	{{if result.length > 0}}
+    {{each(i,item) result}}
+    <tr>
+        <td><input type="radio" name="phone_linkCall_infobox_agent_list_radio" val="${item.workno}" txt="${item.name}" ></td>
+        <td>${item.name}</td>  
+        <td>${item.workno}</td>
+    </tr>
+    {{/each}}
+	{{/if}}
+  </tbody>
+</table>
+<nav class="text-right" id="phone_linkingcall_infobox_agent_list_pager"></nav>

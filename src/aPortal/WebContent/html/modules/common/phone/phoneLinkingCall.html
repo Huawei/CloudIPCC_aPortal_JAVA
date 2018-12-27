@@ -1,0 +1,35 @@
+<div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button id="phone_linkingcall_infobox_close" type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        <h5 class="modal-title i18n" id="myModalLabel" i18nKey="phone.phoneLinkingCall.title">呼出</h5>
+      </div>
+      <div class="modal-body">
+          <div role="tabpanel">
+              <div class="clearfix">
+                <ul class="nav nav-pills" role="tablist">
+                    <li id="phone_linkingcall_infobox_tab_skill" role="presentation" class="active" style="cursor:pointer;">
+                        <a aria-controls="skillQueue" role="tab" class="i18n"  i18nKey="phone.phonecall.skillqueue" data-toggle="tab">技能队列</a>
+                    </li>
+                    <li id="phone_linkingcall_infobox_tab_agent" role="presentation" style="cursor:pointer;">
+                        <a aria-controls="agent" role="tab" class="i18n"  i18nKey="phone.phonecall.agent" data-toggle="tab">业务代表</a>
+                    </li>
+                </ul>
+              </div>
+              <div class="tab-content">
+                <div id="phone_linkingcall_infobox_tab_skill_content" role="tabpanel" class="tab-pane active margin-t-10px" style="max-height:400px; overflow-y:auto">
+                </div>
+                <div id="phone_linkingcall_infobox_tab_agent_content" role="tabpanel" class="tab-pane margin-t-10px" style="max-height:400px; overflow-y:auto">
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer text-center">
+        <button id="phone_linkingcall_btm_2PartyHelp_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phoneLinkingCall.btn.2PartyHelp">两方求助</button>
+        <button id="phone_linkingcall_btm_3PartyHelp_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phoneLinkingCall.btn.3PartyHelp">三方求助</button>
+        <button id="phone_linkingcall_btm_cancel" type="button" class="btn btn-default i18n" i18nKey="common.msg.box.btn.cancel">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

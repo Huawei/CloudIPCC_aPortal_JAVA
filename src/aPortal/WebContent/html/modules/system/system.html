@@ -1,0 +1,45 @@
+<div class="work-container" id="system_div">
+	<h5 class="work-title i18n" i18nKey="menu.system.config"></h5>
+		<div class="form-head form-inline margin-tb-20px" id="system_div">
+	
+			<div class="mt-1 template_name">
+				<span class="i18n control-label" i18nKey="system.config.autoAnswer"></span>
+				<input type="radio" name="system_config_autoAnswer" value="1" id="system_config_autoAnswer1">
+				<label class="i18n control-label" i18nKey="common.label.yes" for="system_config_autoAnswer1"></label> 
+				<input type="radio" name="system_config_autoAnswer" value="0" checked="checked" id="system_config_autoAnswer2">
+				<label class="i18n control-label" i18nKey="common.label.no" for="system_config_autoAnswer2"></label> 
+			</div>
+
+			<div class="mt-1 template_name">
+				<label class="i18n" i18nKey="system.config.maxWorkTime" style="width:167px"></label>
+				<input type="radio" name="system_config_maxWorkTime_radio" value="0" checked="checked"/>
+				<label class="i18n" checked="checked" i18nKey="system.config.maxWorkTime.tip2"></label>
+				<br/>
+				<div style="margin-left: 171px;">
+					<input type="radio" name="system_config_maxWorkTime_radio" value="1"/>
+					<input type="text" class="form-control" readonly="readonly" id="system_config_maxWorkTime" style="width: 60px" maxlength="4" placeholder="1-9999" autocomplete="off"/>
+					<label class="i18n" i18nKey="system.config.maxWorkTime.tip1"></label>
+					<div class="input_error_tip"></div>
+				</div>
+				<br/>
+				
+			</div>
+	
+			<div class="mt-1 template_name" >
+				<span class="i18n" i18nKey="system.config.systemCallerNo"></span> 
+				<select class="form-control form-control-left" id="system_callerNo" style="width: 300px; overflow: hidden;" ></select>
+				<em class="explanation">                  
+        			<div class="explanation_txt_box" style="display: none;">
+						<p class="i18n" i18nkey="system.config.caller.explanation"></p>                      	
+						<a href="https://console.huaweicloud.com/console/" target="_blank">https://console.huaweicloud.com/console/</a>
+               		</div>              
+           		</em>								
+			</div>
+			
+			<div class="mt-1 template_name text-left">
+				<button type="button" id="system_config_searchBtn"
+					class="btn btn-sm btn-primary i18n" i18nKey="common.msg.box.btn.ok"></button>
+			</div>
+		</div>
+
+</div>

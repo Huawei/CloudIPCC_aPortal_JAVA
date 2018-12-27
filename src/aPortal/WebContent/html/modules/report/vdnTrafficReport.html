@@ -1,0 +1,77 @@
+<div class="work-container">
+    <h5 class="work-title i18n" i18nKey="menu.report.vdnTraffic"></h5>
+    <form id="vdnTrafficReport_form" action="/aConsole/resource/report/vdntrafficfile" method="get" target="vdnTrafficReport_iframe">
+    	<input id="vdnTrafficReport_desfilePath" name="desFilePath" style="display:none"></input>
+    	<input id="vdnTrafficReport_agentId" name="agentId"  style="display: none;">
+        <div class="form-head form-inline margin-tb-20px">
+            <div class="form-group form-group-sm margin-r-10px mt-1">
+                <label class="i18n control-label" i18nKey="report.type"></label>
+               	<select class="form-control" id="vdnTrafficReport_type" style="width: 168px;">
+              	 	<option value="2" class="i18n" i18nKey="report.type.day"></option>
+               		<option value="4" class="i18n" i18nKey="report.type.week"></option>
+               		<option value="3" class="i18n" i18nKey="report.type.month"></option>
+               	</select>
+            </div>
+            
+            <div class="form-group form-group-sm has-feedback mt-1">
+                <label class="i18n control-label" i18nKey="report.queryTime"></label>
+                <input type="text" id="vdnTrafficReport_startTime" class="form-control" style="width: 168px;" readonly="readonly"/>
+                <label for="vdnTrafficReport_startTime"><span class="fa-lg icon-calendar form-control-feedback text-info" aria-hidden="true"></span></label>
+            </div>
+            
+            <div class="form-group form-group-sm margin-r-10px has-feedback mt-1">
+	            <label>&minus;</label>
+                <input type="text" class="form-control" id="vdnTrafficReport_endTime" style="width: 168px;" readonly="readonly"/>
+                <label for="vdnTrafficReport_endTime"><span class="fa-lg icon-calendar form-control-feedback text-info" aria-hidden="true"></span></label>
+            </div>
+            <br>
+            <div class="text-center mt-1">
+                <button type="button" id="vdnTrafficReport_searchBtn" class="btn btn-sm btn-primary i18n"  i18nKey="common.button.search"></button>
+                <button type="button" id="vdnTrafficReport_resetBtn" class="btn btn-sm btn-success i18n" i18nkey="common.button.reset"></button>
+                <button type="button" id="vdnTrafficReport_exportBtn" class="btn btn-sm btn-success i18n" i18nkey="common.button.export"></button>
+            </div>
+        </div>
+    </form>
+    <iframe id="vdnTrafficReport_iframe" name="vdnTrafficReport_iframe" style="display:none"></iframe>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+        	<tr class="info">
+        		<th class="i18n" rowspan="2" i18nKey="report.head.time"></th>
+        		<th class="i18n text-center" colspan="9" i18nKey="report.head.callIn"></th>
+        		<th class="i18n text-center" colspan="4" i18nKey="report.head.callOut"></th>
+        	</tr>
+            <tr class="info">
+	            <th class="i18n" i18nKey="report.head.vdntraffic.inBoundCalls"></th>
+	            <th class="i18n" i18nKey="report.head.vdntraffic.answerdCalls"></th>
+	            <th class="i18n" i18nKey="report.head.vdntraffic.answerRate"></th>
+	            <th class="i18n" i18nKey="report.head.vdntraffic.ivrInBoundCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.ivrAnswerdCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.ivrAnswerRate"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.skillInBoundCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.skillAnswerdCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.skillAnswerRate"></th>
+<!--                 <th class="i18n" i18nKey="report.head.vdntraffic.avgInBoundVdnTime"></th> -->
+                <th class="i18n" i18nKey="report.head.vdntraffic.outBoundCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.outBoundAnsweredCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.outBoundIVRAnsweredCalls"></th>
+                <th class="i18n" i18nKey="report.head.vdntraffic.outBoundSkillAnsweredCalls"></th>
+<!--                 <th class="i18n" i18nKey="report.head.vdntraffic.avgOutBoundVdnTime"></th> -->
+            </tr>	
+        </thead>
+        <tbody id="vdnTrafficReport_content">
+          
+        </tbody>
+    </table>
+</div>
+
+ <script src="js/lib/My97DatePicker/WdatePicker.js"></script>
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+

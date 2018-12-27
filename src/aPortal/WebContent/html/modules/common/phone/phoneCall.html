@@ -1,0 +1,93 @@
+    <div tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-primary">
+            <button  id="phone_call_infobox_close" type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+            <h5 class="modal-title i18n" id="myModalLabel" i18nKey="phone.phonecall.call">呼出</h5>
+          </div>
+          <div class="modal-body">
+              <div role="tabpanel">
+                  <div class="clearfix">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li id="phone_call_infobox_tab_num" role="presentation" class="active">
+                            <a aria-controls="phoneNum" role="tab" data-toggle="tab" class="i18n" i18nKey="phone.phonecall.phonenumber">电话号码</a>
+                        </li>
+                        <li id="phone_call_infobox_tab_agent" role="presentation">
+                            <a aria-controls="agent" role="tab" data-toggle="tab" class="i18n" i18nKey="phone.phonecall.agent">座席</a>
+                        </li>
+                    </ul>
+                  </div>
+                  
+                  <!--呼叫开始  -->
+                  <div class="tab-content margin-t-10px">
+                  	 
+                    <div id="phone_call_infobox_tab_num_content" role="tabpanel" class="tab-pane  active" style="height: 350px;">
+                      <div>
+                      	<span class="i18n" i18nKey="system.config.systemCallerNo" style="font-size:13px"></span>
+                      	<span style="font-size:13px"> : </span>
+                      	<span id="phone_call_SystemCallerNo" style="font-size:13px;font-weight:bold;color: #008dda;"></span>                      	
+                      </div>
+                
+                      <div id="phone_call_infobox_call_phoneBox_div" class="row height-full border-gray">
+                          <div class=".col-xs-12 padding-r-0">
+                              <p class="bg-info text-center text-bold i18n" i18nKey="phone.phonecall.dialarea" style="padding:10px;">拨号区</p>
+                              <div class="relative form-inline text-center mt-2" style="-webkit-user-select: none;">
+                                  <input id="phone_call_infobox_tab_num_content_input" type="text" maxlength="24" size="24" class="form-control text-center text-info border-none padding-0 i18nplaceholder" i18nKey="phone.phonecall.pleaseenterphonenumber" placeholder="请输入电话号码" style="font-size: 19px; width: 180px;" autocomplete="off">
+                                  <div id="phone_call_infobox_tab_num_content_delete" class="input-backspace">&times;</div>
+                              </div>
+                              <div class="dial-area clearfix" style="padding: 30px 30px 0;">
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_1" class="btn-circle border-primary">1</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_2" class="btn-circle border-primary">2</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_3" class="btn-circle border-primary">3</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_4" class="btn-circle border-primary">4</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_5" class="btn-circle border-primary">5</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_6" class="btn-circle border-primary">6</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_7" class="btn-circle border-primary">7</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_8" class="btn-circle border-primary">8</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_9" class="btn-circle border-primary">9</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_x" class="btn-circle border-primary" style="font-size: 3em;">&lowast;</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_0" class="btn-circle border-primary">0</button>
+                                  </p>
+                                  <p class="col-xs-4 text-center">
+                                    <button id="phone_call_infobox_tab_num_content_btn_j" class="btn-circle border-primary">#</button>
+                                  </p>
+                              </div>
+                          </div>
+                      
+                      </div>
+                    </div>
+                    <div id="phone_call_infobox_tab_agent_content" role="tabpanel" class="tab-pane" style="max-height:400px;overflow-y:auto">
+                    </div>
+                  </div>
+                  <!--呼叫结束  -->
+                  
+              </div>
+          </div>
+          <div class="modal-footer text-center">
+            <button id="phone_call_btm_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phonecall.call">呼出</button>
+            <button id="phone_call_btm_cancel" type="button" class="btn btn-default i18n" i18nKey="common.msg.box.btn.cancel">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>

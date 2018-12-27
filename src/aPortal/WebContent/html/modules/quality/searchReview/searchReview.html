@@ -1,0 +1,73 @@
+<div class="work-container">
+    <h5 class="work-title i18n" i18nKey="menu.system.basic.searchreview">搜索回放</h5>
+    <form id = "searchReview_form" action="/aConsole/resource/record/recordfile" method="get" target="searchReview_iframe">
+    	<input id="searchReview_filePath" name="desFilePath"  style="display: none;">
+    	<input id="searchReview_agentId" name="agentId"  style="display: none;">
+        <div class="form-head form-inline margin-tb-20px">
+            <div class="form-group form-group-sm margin-r-10px mt-1">
+                <label class="i18n control-label" i18nKey="record.info.caller">主叫号码</label>
+                <input type="text" class="form-control i18n" i18nKey="record.info.caller" maxlength="24" id="callfrom" autocomplete="off">
+            </div>
+            
+            <div class="form-group form-group-sm margin-r-10px mt-1">
+                <label class="i18n control-label" i18nKey="record.info.called">被叫号码</label>
+                <input type="text" class="form-control i18n" i18nKey="record.info.called" maxlength="24" id="callTarget" autocomplete="off">
+            </div>
+            <div class="form-group form-group-sm margin-r-10px mt-1">&nbsp;&nbsp;
+                <label class="i18n control-label" i18nKey="record.info.agentId">坐席号</label>
+                <input type="text" class="form-control i18n" i18nKey="record.info.agentId" maxlength="5" style="width:168px" id="searchReview_agentId" autocomplete="off"> 
+            </div>
+
+            <div class="form-group form-group-sm has-feedback mt-1">
+                <label class="i18n control-label" i18nKey="record.info.callTime">通话时间</label>
+                <input type="text" id="searchReview_startTime" class="form-control" readonly="readonly" style="width: 168px;"/>
+                <label for="searchReview_startTime"><span class="fa-lg icon-calendar form-control-feedback text-info" aria-hidden="true"></span></label>
+            </div>
+            
+            <div class="form-group form-group-sm margin-r-10px has-feedback mt-1">
+	            <label>&minus;</label>
+                <input type="text" class="form-control" id="searchReview_endTime" readonly="readonly" style="width: 168px;"/>
+                <label for="searchReview_endTime"><span class="fa-lg icon-calendar form-control-feedback text-info" aria-hidden="true"></span></label>
+            </div>
+            <br/>
+            
+            <div class="text-center mt-1">
+                <button type="button" id="sr_searchBtn" class="btn btn-sm btn-primary i18n"  i18nKey="record.button.search">查找</button>
+                <button type="button" id="sr_resetBtn" class="btn btn-sm btn-success i18n" i18nkey="record.button.reset">重置</button>
+            </div>
+        </div>
+    </form>
+    <iframe id="searchReview_iframe" name="searchReview_iframe" style="display:none"></iframe>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="info">
+	            <th width="60px" class="i18n" i18nKey="record.info.sort">序号</th>
+	            <th class="i18n" i18nKey="record.info.caller">主叫号码</th>
+	            <th class="i18n" i18nKey="record.info.called">被叫号码</th>
+	            <th width="80px" class="i18n" i18nKey="record.info.agentId">坐席号</th>
+                <th width="80px" class="i18n" i18nKey="record.info.callType">呼叫类型</th>
+                <th width="160px" class="i18n" i18nKey="record.info.startTime">通话开始时间</th>
+                <th width="160px" class="i18n" i18nKey="record.info.endTime">通话结束时间</th>
+                <th width="120px" class="i18n" i18nKey="record.info.callDuration">通话时长</th>
+                <th width="80px" class="i18n" i18nKey="record.info.operate">操作</th>
+            </tr>	
+        </thead>
+        <tbody id="searchReview_content">
+        </tbody>
+    </table>
+    <nav class="text-right" id="searchReview_pagination">
+    </nav>
+</div>
+
+ 
+ <script src="js/lib/My97DatePicker/WdatePicker.js"></script>
+
+ 
+
+ 
+
+ 
+ 
+ 
+ 
+

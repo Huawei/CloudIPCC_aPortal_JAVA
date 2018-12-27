@@ -1,0 +1,93 @@
+<div class="work-container">
+	<h5 class="work-title i18n" i18nKey="menu.report.skillTraffic">技能话务量报表</h5>
+
+	<form id="skillTrafficReport_form" action="/aConsole/resource/report/skilltrafficfile" method="post" target="skillTrafficReport_iframe">
+		<div class="form-head form-inline margin-tb-20px">
+			<div class="form-group form-group-sm margin-r-10px mt-1">
+				<label class="i18n control-label" i18nKey="report.type">报表类型</label>
+				<select class="form-control" id="skillTrafficReport_type" name="skillTrafficReport_type"
+					style="width: 168px;">
+					<option value="2" class="i18n" i18nKey="report.type.day">日报表</option>
+					<option value="4" class="i18n" i18nKey="report.type.week">周报表</option>
+					<option value="3" class="i18n" i18nKey="report.type.month">月报表</option>
+				</select>
+			</div>
+
+			<div class="form-group form-group-sm margin-r-10px mt-1">
+				<label class="i18n control-label" i18nKey="report.head.skilltraffic.skillQueue">技能队列</label>
+				<select  id="skillTrafficReport_queue" style="width: 168px;"  multiple="multiple">
+				</select>
+			</div>
+
+			<input type="hidden" id="skillTrafficReport_skills" name ="skillTrafficReport_skills" >
+			</input>
+			<div class="form-group form-group-sm has-feedback mt-1">
+				<label class="i18n control-label" i18nKey="report.queryTime">统计时间</label>
+				<input type="text" id="skillTrafficReport_startTime" name="skillTrafficReport_startTime"
+					class="form-control" style="width: 168px;" readonly="readonly" />
+				<label for="skillTrafficReport_startTime"><span
+					class="fa-lg icon-calendar form-control-feedback text-info"
+					aria-hidden="true"></span></label>
+			</div>
+
+			<div class="form-group form-group-sm margin-r-10px has-feedback mt-1">
+				<label>&minus;</label> 
+				<input type="text" class="form-control"
+					id="skillTrafficReport_endTime" name="skillTrafficReport_endTime" style="width: 168px;"
+					readonly="readonly" /> <label for="skillTrafficReport_endTime"><span
+					class="fa-lg icon-calendar form-control-feedback text-info"
+					aria-hidden="true"></span></label>
+			</div>
+			<br>
+			<div class="text-center mt-1">
+				<button type="button" id="skillTrafficReport_searchBtn"
+					class="btn btn-sm btn-primary i18n" i18nKey="common.button.search">查询</button>
+				<button type="button" id="skillTrafficReport_resetBtn"
+					class="btn btn-sm btn-success i18n" i18nkey="common.button.reset">重置</button>
+				<button type="button" id="skillTrafficReport_exportBtn" class="btn btn-sm btn-success i18n" i18nkey="common.button.export"></button>
+			</div>
+		</div>
+	</form>
+<iframe id="skillTrafficReport_iframe" name="skillTrafficReport_iframe" style="display:none"></iframe>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr class="info">
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.timePeriod">时间段</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.occupyNum">请求人工数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkNum">通话数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkRate">通话率</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkLostNum">呼损数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkLostRate">呼损率</th>
+				<th class="i18n text-center" colspan="2" i18nKey="report.head.skilltraffic.queueLost">排队呼损</th>
+				<th class="i18n text-center" colspan="3" i18nKey="report.head.skilltraffic.answerLost">应答呼损</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.systemServiceLevel">系统服务水平</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.answerWithNoTalkNum">应答无通话数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.answerWithTalkRate">应答通话率</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkQueueAvrTime">通话排队均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.callLostQueueAvrTime">呼损排队均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkAnswerAvrTime">通话应答均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.callLostAnswerAvrTime">呼损应答均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.talkAvrTime">通话均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.waitAvrTime">等待均长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.waitMaxTime">最大等待时长</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.waitMinTime">最小等待时长</th>
+<!-- 				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.overflowToQueueNum">溢出转队列数</th> -->
+<!-- 				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.overflowToQueueAvrTime">溢出排队均长</th> -->
+<!-- 				<th class="i18n" rowspan="2" i18nKey="report.head.skilltraffic.overflowToSeatNum">溢出转坐席数</th> -->
+			</tr>
+			<tr class="info">
+				<th class="i18n" i18nKey="report.head.skilltraffic.userGiveupNum">用户放弃数</th>
+				<th class="i18n" i18nKey="report.head.skilltraffic.platformCallLostNum">平台呼损数</th>
+				<th class="i18n" i18nKey="report.head.skilltraffic.userGiveupNum">用户放弃数</th>
+				<th class="i18n" i18nKey="report.head.skilltraffic.seatHangUpNum">坐席挂机数</th>
+				<th class="i18n" i18nKey="report.head.skilltraffic.platformCallLostNum">平台呼损数</th>
+			</tr>
+		</thead>
+		<tbody id="skillTrafficReport_content">		
+
+		</tbody>
+	</table>
+</div>
+<script src="js/lib/My97DatePicker/WdatePicker.js"></script>
+
+

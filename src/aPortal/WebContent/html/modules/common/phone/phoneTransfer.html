@@ -1,0 +1,92 @@
+<div tabindex="-1" role="dialog" aria-hidden="true">
+  <div id="phoneTransfer_width" class="modal-dialog" style="width: 600px">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button id="phone_transfer_infobox_close" type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+        <h5 class="modal-title i18n" id="myModalLabel" i18nKey="phone.phoneTransfer.title">呼叫转移</h5>
+      </div>
+      <div class="modal-body">
+          <div role="tabpanel">
+              <div class="clearfix">
+                <ul class="nav nav-pills" role="tablist">
+                    <li id="phone_transfer_infobox_tab_skill" role="presentation" class="active" style="cursor:pointer;">
+                        <a aria-controls="skillQueue" role="tab" data-toggle="tab" class="i18n" i18nKey="phone.phonecall.skillqueue">技能队列</a>
+                    </li>
+                    <li id="phone_transfer_infobox_tab_agent" role="presentation" style="cursor:pointer;">
+                        <a aria-controls="agent" role="tab" data-toggle="tab" class="i18n" i18nKey="phone.phonecall.agent">业务代表</a>
+                    </li>
+                    <li id="phone_transfer_infobox_tab_tel" role="presentation" style="cursor:pointer;">
+                        <a aria-controls="phoneNum" role="tab" data-toggle="tab" class="i18n" i18nKey="phone.phonecall.phonenumber">电话号码</a>
+                    </li>
+                </ul>
+              </div>
+              <div class="tab-content">
+                <div id="phone_transfer_infobox_tab_skill_content" role="tabpanel" class="tab-pane active margin-t-10px" style="max-height:400px;overflow-y:auto">
+                </div>
+                <div id="phone_transfer_infobox_tab_agent_content" role="tabpanel" class="tab-pane margin-t-10px" style="max-height:400px;overflow-y:auto">
+                </div>
+          <!-- 呼叫转移开始 -->
+                <div id="phone_transfer_infobox_tab_tel_content" role="tabpanel" class="tab-pane margin-t-10px clearfix border-gray">
+                  <!-- 左边 -->
+                   <div class="col-xs-12 padding-r-0">
+                        <p class="bg-info text-center text-bold i18n" i18nKey="phone.phonecall.dialarea" style="padding:10px;">拨号区</p>
+                        <div class="relative form-inline text-center mt-2" style="-webkit-user-select: none;">
+                            <input id="phone_transfer_infobox_tel_num" type="text" maxlength="24" size="24" class="form-control text-center text-info border-none padding-0 i18nplaceholder" i18nKey="phone.phonecall.pleaseenterphonenumber" placeholder="请输入电话号码" style="font-size: 17px; width: 180px;" autocomplete="off">
+                            <div id="phone_transfer_infobox_tab_num_content_delete" class="input-backspace">&times;</div>
+                        </div>
+                        <div class="dial-area clearfix" style="padding: 30px 30px 0;">
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_1" class="btn-circle border-primary">1</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_2" class="btn-circle border-primary">2</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_3" class="btn-circle border-primary">3</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_4" class="btn-circle border-primary">4</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_5" class="btn-circle border-primary">5</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_6" class="btn-circle border-primary">6</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_7" class="btn-circle border-primary">7</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_8" class="btn-circle border-primary">8</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_9" class="btn-circle border-primary">9</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_x" class="btn-circle border-primary" style="font-size: 3em;">&lowast;</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_0" class="btn-circle border-primary">0</button>
+                            </p>
+                            <p class="col-xs-4 text-center">
+                              <button id="phone_transfer_infobox_tab_tel_content_btn_j" class="btn-circle border-primary">#</button>
+                            </p>
+                        </div>
+                  		<div style="margin-left: 10px; margin-right: 10px;" >
+                  			<p class="i18n" i18nKey="phone.phoneTransfer.calltransfer.tip"></p>
+                  			<p class="i18n" i18nKey="phone.phoneTransfer.threetransfer.tip"></p>
+                  		</div>
+                    </div>
+            <!--呼叫转移结束  -->
+            	</div>
+          </div>
+      </div>
+    </div>
+      <div class="modal-footer text-center">
+        <button id="phone_transfer_btm_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phoneTransfer.btn.transfer">转移</button>
+        <button id="phone_transfer_callParty_btm_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phoneTransfer.btn.calltransfer">通话转</button>
+        <button id="phone_transfer_3Party_btm_submit" type="button" class="btn btn-success i18n" i18nKey="phone.phoneTransfer.btn.threetransfer">三方转</button>
+        <button id="phone_transfer_btm_cancel" type="button" class="btn btn-default i18n" i18nKey="common.msg.box.btn.cancel">退出</button>
+      </div>
+  </div>
+</div>

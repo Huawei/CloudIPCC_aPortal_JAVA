@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huawei.agentconsole.dao.intf.saas.BpoConfigDao">
+	<select id="getTenantInfo" resultType="com.huawei.agentconsole.bean.TenantInfo" >
+		SELECT CREATE_TIME AS createTime, IS_TRIAL as trial 
+		FROM t_saas_bpo_tenant where CC_ID = #{ccId} and VDN_ID = #{vdnId};
+	</select>
+		
+	<select id="getTrialCalledList" resultType="java.lang.String">
+		SELECT CALLED_NUMBER FROM t_saas_bpo_called where CC_ID = #{ccId} and VDN_ID = #{vdnId};
+	</select>
+	
+	<select id="getTrialCalledCountByPhoneNumber" resultType="java.lang.Integer">
+		SELECT count(*) FROM t_saas_bpo_called where CC_ID = #{ccId} and VDN_ID = #{vdnId} and CALLED_NUMBER = #{phoneNumber};
+	</select>
+	
+	
+	<select id="queryCallerNumbers" resultType="com.huawei.agentconsole.bean.CallerNumber" >
+		SELECT CALLERNUM as phoneNumber, CALLERINFO as remark FROM t_saas_bpo_callinfo 
+		where CC_ID = #{ccId} and VDN_ID = #{vdnId};
+	</select>
+</mapper>

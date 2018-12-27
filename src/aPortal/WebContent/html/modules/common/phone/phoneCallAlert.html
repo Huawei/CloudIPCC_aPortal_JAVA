@@ -1,0 +1,26 @@
+<div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" 
+	aria-hidden="true">
+	<div class="modal-dialog" id="phoneCallAlert_div">
+		<div class="modal-content">
+			<div class="modal-header bg-primary">
+				<button id="phoneCallAlert_infobox_close" type="button" class="close"	data-dismiss="modal" aria-label="Close">&times;</button>
+				<h5 class="modal-title i18n" id="phoneCallAlert_ModalLabel" i18nKey="phoneCallAlert.tittle">来电提示</h5>
+			</div>
+			<div class="modal-body phoneCallAlert-body">
+				<div class="phoneCallAlert-div">
+					<label id="phoneCallAlert_callIn_Type_label" class="i18n phoneCallAlert-label" i18nKey="phoneCallAlert.feature.callIn.type">呼叫类型：</label>
+					<label id="phoneCallAlert_callIn_Type" class="phoneCallAlert-text"></label>
+				</div>   
+				<div class="phoneCallAlert-div">
+					<label id="phoneCallAlert_callIn_Number_label" class="i18n phoneCallAlert-label" i18nKey="phoneCallAlert.callIn.Number">来电号码：</label>
+					<label id="phoneCallAlert_callIn_Number" class="phoneCallAlert-text"></label>
+				</div>   
+			</div>
+			<div class="modal-footer text-center">
+				<button type="button" id="phoneCallAlert_acceptBtn" class="btn btn-sm btn-success phoneCallAlert-button i18n i18ntitle" i18nKey="phoneCallAlert.answer">接听</button>
+				<button type="button" id="phoneCallAlert_rejectBtn" class="btn btn-sm btn-danger phoneCallAlert-button i18n" i18nKey="phoneCallAlert.reject">拒接</button>							
+			</div>
+			
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE configuration   
+	 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+	 "http://mybatis.org/dtd/mybatis-3-config.dtd">    
+<configuration>  
+
+    <settings>  
+        <!-- 设置超时时间，它决定驱动等待一个数据库响应的时间  -->  
+        <setting name="defaultStatementTimeout" value="20000"/>  
+    </settings>
+    
+    <!-- 将所有的Bean类记录副名  -->	
+	<typeAliases>
+	</typeAliases>
+    
+	<environments default="development">   
+		<environment id="sysdb">   
+			<transactionManager type="JDBC"/>   
+			<dataSource type="POOLED">   
+				<property name="driver" value="${SYSDB_DB_CONNECT_DRIVER}"/>   
+				<property name="url" value="${SYSDB_DB_CONNECT_URL}"/> 
+				<property name="username" value="${SYSDB_DB_CONNECT_NAME}"/>   
+				<property name="password" value="${SYSDB_DB_CONNECT_PASSWORD}"/>    
+				<property name="poolMaximumActiveConnections" value="20"/>    
+			</dataSource>   
+		</environment>
+	</environments>   
+		
+	<!-- 定义MapperSQL映射文件 -->
+	<mappers>
+		<mapper resource="sysdbMapper/${SYSDB_DBTYPE}/ServerStatusMapper.xml"/>
+		<mapper resource="sysdbMapper/${SYSDB_DBTYPE}/BpoConfigMapper.xml"/>
+		<mapper resource="sysdbMapper/${SYSDB_DBTYPE}/AgentConfigure.xml"/>
+	</mappers>  
+</configuration>

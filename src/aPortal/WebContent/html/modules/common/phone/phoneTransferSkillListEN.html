@@ -1,0 +1,32 @@
+<table class="table table-striped table-hover">
+  <thead>
+    <tr class="info">
+        <th width="60px"></th>
+        <th class="i18n" i18nKey="phone.phoneLinkingCallSkillList.skillname">Skill Name</th>
+        <th width="120px" class="i18n" i18nKey="phone.phoneLinkingCallSkillList.waitingnumber">waiting number</th>
+        <th width="120px" class="i18n" i18nKey="phone.phoneLinkingCallSkillList.signinbusinessagent">available agent</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{{if result.length == 0}}
+	    <tr>
+	        <td colspan="5" class="text-center">
+	            <span class="fa fa-exclamation-circle fa-lg text-info"></span> No Data
+	        </td>
+	    </tr>
+	{{/if}}
+	{{if result.length > 0}}
+    {{each(i,item) result}}
+    <tr>
+        <td><input type="radio" name="phone_transfer_infobox_skill_list_radio" val="${item.skillId}" idlenum="${item.queueSize}" txt="${item.skillName}"></td>
+        <td>${item.skillName}</td>
+        <td>${item.queueSize}</td>
+        <td>
+        	<span {{if item.agentIdleNums == 0}}style="color:#eb6100;"{{/if}}>${item.availAgents}/${item.loggedOnAgents}</span>
+		</td>
+    </tr>
+    {{/each}}
+	{{/if}}
+  </tbody>
+</table>
+<nav class="text-right" id="phone_transfer_infobox_skill_list_pager"></nav>

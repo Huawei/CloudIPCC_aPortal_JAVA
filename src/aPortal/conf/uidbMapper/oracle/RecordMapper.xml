@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huawei.agentconsole.dao.intf.RecordDao">
+
+  	<!-- 分页查询录音信息 -->
+  	<select id="queryRecordInfo"  statementType="CALLABLE" parameterType="map">
+  		<![CDATA[
+			{call P_CONSOLE_QUERYRECORDINFO(
+				#{o_cursor, jdbcType=CURSOR, mode=OUT, resultMap=recordInfoBean, javaType=java.sql.ResultSet},
+				#{i_recordingID, jdbcType=VARCHAR, mode=IN},
+				#{i_callerno, jdbcType=VARCHAR, mode=IN},
+				#{i_calleeno, jdbcType=VARCHAR, mode=IN},
+				#{i_visitDate, jdbcType=VARCHAR, mode=IN},
+				#{i_beginDate, jdbcType=VARCHAR, mode=IN},
+				#{i_endDate, jdbcType=VARCHAR, mode=IN},
+				#{i_agentIds, jdbcType=VARCHAR, mode=IN},
+				#{i_serviceTypeIds, jdbcType=VARCHAR, mode=IN},
+				#{i_callTypeId, jdbcType=VARCHAR, mode=IN},
+				#{i_mediaType, jdbcType=VARCHAR, mode=IN},
+				#{i_phoneNo, jdbcType=VARCHAR, mode=IN},
+				#{i_servDurationMin, jdbcType=VARCHAR, mode=IN},
+				#{i_servDurationMax, jdbcType=VARCHAR, mode=IN},
+				#{i_ccId, jdbcType=VARCHAR, mode=IN},
+				#{i_vdnId, jdbcType=VARCHAR, mode=IN},
+				#{i_takePercent, jdbcType=VARCHAR, mode=IN},
+				#{i_skillIds, jdbcType=VARCHAR, mode=IN},
+				#{i_callIds, jdbcType=VARCHAR, mode=IN},
+				#{i_pageSize, jdbcType=VARCHAR, mode=IN},
+				#{io_pageNo, jdbcType=VARCHAR, mode=IN},
+				#{o_totalCount, jdbcType=INTEGER, mode=OUT})
+			} 
+		 ]]> 
+  	</select>
+  	
+  	<resultMap type="com.huawei.agentconsole.bean.RecordInfoBean" id="recordInfoBean">
+		<result column="CALLID" property="callId" />
+		<result column="RECORDID" property="recordId" />
+		<result column="SERVERTIME" property="serverTime" />
+		<result column="CCID" property="ccId" />
+		<result column="VDNID" property="vdnId" />
+		<result column="AGENTID" property="agentId" />
+		<result column="SERVICETYPEID" property="serviceTypeId" />
+		<result column="CALLTYPEID" property="callTypeId" />
+		<result column="BEGINDATE" property="beginDate" />
+		<result column="ENDDATE" property="endDate" />
+		<result column="VISITTIME" property="visitTime" />
+		<result column="FILENAME" property="fileName" />
+		<result column="CALLERNO" property="callerNo" />
+		<result column="CALLEENO" property="calleeNo" />
+		<result column="CURRENTSKILLID" property="currentSkillId" />
+		<result column="RECORDFORMAT" property="recordFormat" />
+		<result column="MEDIATYPE" property="mediaType" />
+		<result column="VISITFLAG" property="visitFlag" />
+	</resultMap>
+  	
+</mapper>

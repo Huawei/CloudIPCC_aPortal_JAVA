@@ -1,0 +1,487 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?nl6047');
+  src:  url('../fonts/icomoon.eot?nl6047#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?nl6047') format('truetype'),
+    url('../fonts/icomoon.woff?nl6047') format('woff'),
+    url('../fonts/icomoon.svg?nl6047#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-A:before {
+  content: "\e900";
+}
+.icon-add:before {
+  content: "\e901";
+}
+.icon-add-call:before {
+  content: "\e902";
+}
+.icon-add-o:before {
+  content: "\e903";
+}
+.icon-add-worknotes:before {
+  content: "\e904";
+}
+.icon-advanced-search:before {
+  content: "\e905";
+}
+.icon-arrow-down:before {
+  content: "\e906";
+}
+.icon-arrow-up:before {
+  content: "\e907";
+}
+.icon-attachment:before {
+  content: "\e908";
+}
+.icon-attachment-r:before {
+  content: "\e909";
+}
+.icon-backspace:before {
+  content: "\e90a";
+}
+.icon-back-stage:before {
+  content: "\e90b";
+}
+.icon-bag:before {
+  content: "\e90c";
+}
+.icon-bell:before {
+  content: "\e90d";
+}
+.icon-book-mark-link:before {
+  content: "\e90e";
+}
+.icon-book-mark-star:before {
+  content: "\e90f";
+}
+.icon-box:before {
+  content: "\e910";
+}
+.icon-calendar:before {
+  content: "\e911";
+}
+.icon-call-diversion:before {
+  content: "\e912";
+}
+.icon-call-in-o:before {
+  content: "\e913";
+}
+.icon-call-out:before {
+  content: "\e914";
+}
+.icon-call-out-o:before {
+  content: "\e915";
+}
+.icon-chart:before {
+  content: "\e916";
+}
+.icon-chat:before {
+  content: "\e917";
+}
+.icon-chatbubble:before {
+  content: "\e918";
+}
+.icon-chatbubble-o:before {
+  content: "\e919";
+}
+.icon-check:before {
+  content: "\e91a";
+}
+.icon-check-circle:before {
+  content: "\e91b";
+}
+.icon-close:before {
+  content: "\e91c";
+}
+.icon-close-circle:before {
+  content: "\e91d";
+}
+.icon-cloud-download:before {
+  content: "\e91e";
+}
+.icon-cloud-upload:before {
+  content: "\e91f";
+}
+.icon-copy:before {
+  content: "\e920";
+}
+.icon-cut:before {
+  content: "\e921";
+}
+.icon-Dbox:before {
+  content: "\e922";
+}
+.icon-del:before {
+  content: "\e923";
+}
+.icon-description:before {
+  content: "\e924";
+}
+.icon-desktop:before {
+  content: "\e925";
+}
+.icon-dialog:before {
+  content: "\e926";
+}
+.icon-download-o:before {
+  content: "\e927";
+}
+.icon-Earth:before {
+  content: "\e928";
+}
+.icon-edit:before {
+  content: "\e929";
+}
+.icon-espace:before {
+  content: "\e92a";
+}
+.icon-Evaluation:before {
+  content: "\e92b";
+}
+.icon-export:before {
+  content: "\e92c";
+}
+.icon-feedback:before {
+  content: "\e92d";
+}
+.icon-female:before {
+  content: "\e92e";
+}
+.icon-file-transfer:before {
+  content: "\e92f";
+}
+.icon-flower:before {
+  content: "\e930";
+}
+.icon-get-work:before {
+  content: "\e931";
+}
+.icon-group:before {
+  content: "\e932";
+}
+.icon-group-s:before {
+  content: "\e933";
+}
+.icon-group-s1:before {
+  content: "\e934";
+}
+.icon-hang-up:before {
+  content: "\e935";
+}
+.icon-headphone:before {
+  content: "\e936";
+}
+.icon-heart:before {
+  content: "\e937";
+}
+.icon-history:before {
+  content: "\e939";
+}
+.icon-history-circle:before {
+  content: "\e93a";
+}
+.icon-history-o:before {
+  content: "\e93b";
+}
+.icon-home:before {
+  content: "\e93c";
+}
+.icon-huawei:before {
+  content: "\e93d";
+}
+.icon-img:before {
+  content: "\e93e";
+}
+.icon-info:before {
+  content: "\e93f";
+}
+.icon-inport:before {
+  content: "\e940";
+}
+.icon-keep:before {
+  content: "\e941";
+}
+.icon-recover:before {
+  content: "\e95d";
+}
+.icon-lock:before {
+  content: "\e942";
+}
+.icon-mail:before {
+  content: "\e943";
+}
+.icon-mail-Forwarding:before {
+  content: "\e944";
+}
+.icon-mail-o:before {
+  content: "\e945";
+}
+.icon-mail-Reply:before {
+  content: "\e946";
+}
+.icon-male:before {
+  content: "\e947";
+}
+.icon-mic-nav:before {
+  content: "\e948";
+}
+.icon-microphone:before {
+  content: "\e949";
+}
+.icon-minus-o:before {
+  content: "\e94a";
+}
+.icon-minus-square:before {
+  content: "\e94b";
+}
+.icon-minus-square-o:before {
+  content: "\e94c";
+}
+.icon-Mobile-phone:before {
+  content: "\e94d";
+}
+.icon-note-book:before {
+  content: "\e94e";
+}
+.icon-online-severs:before {
+  content: "\e94f";
+}
+.icon-openallmail:before {
+  content: "\e950";
+}
+.icon-openmail:before {
+  content: "\e951";
+}
+.icon-pc:before {
+  content: "\e952";
+}
+.icon-pencil:before {
+  content: "\e953";
+}
+.icon-phone:before {
+  content: "\e954";
+}
+.icon-plus-square:before {
+  content: "\e955";
+}
+.icon-plus-square-o:before {
+  content: "\e956";
+}
+.icon-power-off:before {
+  content: "\e957";
+}
+.icon-preserve:before {
+  content: "\e958";
+}
+.icon-prohibit:before {
+  content: "\e959";
+}
+.icon-qc:before {
+  content: "\e95a";
+}
+.icon-question:before {
+  content: "\e95b";
+}
+.icon-questionlist:before {
+  content: "\e95c";
+}
+.icon-recover:before {
+  content: "\e95d";
+}
+.icon-refresh:before {
+  content: "\e95e";
+}
+.icon-reload:before {
+  content: "\e95f";
+}
+.icon-rest:before {
+  content: "\e960";
+}
+.icon-robot:before {
+  content: "\e961";
+}
+.icon-rocket:before {
+  content: "\e962";
+}
+.icon-search:before {
+  content: "\e963";
+}
+.icon-send:before {
+  content: "\e964";
+}
+.icon-set:before {
+  content: "\e965";
+}
+.icon-severs-list:before {
+  content: "\e966";
+}
+.icon-share-screen:before {
+  content: "\e967";
+}
+.icon-sign-in:before {
+  content: "\e968";
+}
+.icon-sign-out:before {
+  content: "\e969";
+}
+.icon-smile:before {
+  content: "\e96a";
+}
+.icon-smile-o:before {
+  content: "\e96b";
+}
+.icon-sort-asc:before {
+  content: "\e96c";
+}
+.icon-sort-desc:before {
+  content: "\e96d";
+}
+.icon-sound:before {
+  content: "\e96e";
+}
+.icon-SR:before {
+  content: "\e96f";
+}
+.icon-Team:before {
+  content: "\e970";
+}
+.icon-times:before {
+  content: "\e971";
+}
+.icon-tool:before {
+  content: "\e972";
+}
+.icon-tool-box:before {
+  content: "\e973";
+}
+.icon-Transfer:before {
+  content: "\e974";
+}
+.icon-T-shirt:before {
+  content: "\e975";
+}
+.icon-update:before {
+  content: "\e976";
+}
+.icon-upload-o:before {
+  content: "\e977";
+}
+.icon-user_o:before {
+  content: "\e978";
+}
+.icon-user-add:before {
+  content: "\e979";
+}
+.icon-user-circle-o:before {
+  content: "\e97a";
+}
+.icon-user-desc:before {
+  content: "\e97b";
+}
+.icon-user-huawei:before {
+  content: "\e97c";
+}
+.icon-user-transfer:before {
+  content: "\e97d";
+}
+.icon-video:before {
+  content: "\e97e";
+}
+.icon-vip:before {
+  content: "\e97f";
+}
+.icon-voice:before {
+  content: "\e980";
+}
+.icon-volume:before {
+  content: "\e981";
+}
+.icon-volume-o:before {
+  content: "\e982";
+}
+.icon-warning:before {
+  content: "\e983";
+}
+.icon-warning-1:before {
+  content: "\e984";
+}
+.icon-wechat:before {
+  content: "\e985";
+}
+.icon-worknotes:before {
+  content: "\e986";
+}
+
+.icon-mute:before {
+  content: "\ea2a";
+}
+
+.icon-unmute:before {
+  content: "\ea26";
+}
+
+.icon-add-call:before {
+	content: "\e902";
+} 
+
+.icon-help:before{
+	content:"\e97d";
+}
+.icon-fetchBack:before{
+	content:"\e913";
+}
+.logo-huawei:before{
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+	
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;	
+  color: #ED1C24;
+  font-size : 30px;
+  content : "\e93d";
+}
+
+.content_warning {
+	color: #EF660B;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 1px !important;
+  border-top: 1px solid #000 !important;
+}
+
+
+
+.multiselect{
+ text-align: left !important;
+}
+.multiselect-selected-text{
+width:140px;
+display:inline-block
+}
+

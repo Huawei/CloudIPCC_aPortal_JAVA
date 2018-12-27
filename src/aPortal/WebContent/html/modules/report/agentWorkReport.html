@@ -1,0 +1,97 @@
+<div class="work-container">
+	<h5 class="work-title i18n" i18nKey="menu.report.agentWork">话务员接续报表</h5>
+
+	<form id="agentWorkReport_form" action="/aConsole/resource/report/agentworkfile" method="post" target="agentWorkReport_iframe">
+		<div class="form-head form-inline margin-tb-20px">
+			<div class="form-group form-group-sm margin-r-10px mt-1">
+				<label class="i18n control-label" i18nKey="report.type">报表类型</label>
+				<select class="form-control" id="agentWorkReport_type" name="agentWorkReport_type"
+					style="width: 168px;">
+					<option value="2" class="i18n" i18nKey="report.type.day">日报表</option>
+					<option value="4" class="i18n" i18nKey="report.type.week">周报表</option>
+					<option value="3" class="i18n" i18nKey="report.type.month">月报表</option>
+				</select>
+			</div>
+			
+			<div class="form-group form-group-sm margin-r-10px mt-1">
+				<label class="i18n control-label" i18nKey="report.label.agentName">工号</label>
+				<select  id="agentWork_agents" style="width: 168px;"  multiple="multiple">
+				</select>
+			</div>
+			<input type="hidden" id="agentWorkReport_agentId" name ="agentWorkReport_agentId" >
+			</input>	
+			<div class="form-group form-group-sm has-feedback mt-1">
+				<label class="i18n control-label" i18nKey="report.queryTime">统计时间</label>
+				<input type="text" id="agentWorkReport_startTime" name="agentWorkReport_startTime"
+					class="form-control" style="width: 168px;" readonly="readonly" />
+				<label for="agentWorkReport_startTime"><span
+					class="fa-lg icon-calendar form-control-feedback text-info"
+					aria-hidden="true"></span></label>
+			</div>
+
+			<div class="form-group form-group-sm margin-r-10px has-feedback mt-1">
+				<label>&minus;</label> <input type="text" class="form-control" name="agentWorkReport_endTime"
+					id="agentWorkReport_endTime" style="width: 168px;"
+					readonly="readonly" /> <label for="agentWorkReport_endTime"><span
+					class="fa-lg icon-calendar form-control-feedback text-info"
+					aria-hidden="true"></span></label>
+			</div>
+			<br>
+			<div class="text-center mt-1">
+				<button type="button" id="agentWorkReport_searchBtn"
+					class="btn btn-sm btn-primary i18n" i18nKey="common.button.search">查询</button>
+				<button type="button" id="agentWorkReport_resetBtn"
+					class="btn btn-sm btn-success i18n" i18nkey="common.button.reset">重置</button>
+				<button type="button" id="agentWorkReport_exportBtn" class="btn btn-sm btn-success i18n" i18nkey="common.button.export"></button>
+			</div>
+		</div>
+	</form>
+<iframe id="agentWorkReport_iframe" name="agentWorkReport_iframe" style="display:none"></iframe>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr class="info">
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.agentId">工号</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.agentName">姓名</th>
+				<th class="i18n text-center" rowspan="2" i18nKey="report.head.agentWork.skillName">时间段</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.signIn">签入</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.callIn">呼入</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.callOut">呼出</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.arrange">整理</th>
+<!-- 				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.rest">休息</th> -->
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.keep">保持</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.sayBusy">示忙</th>
+				<th class="i18n" rowspan="2" minwidth="65px" i18nKey="report.head.agentWork.answerTime">应答时长</th>				
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.freeTime">空闲时长</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.workTimeUseRate">工时利用率</th>
+				<th class="i18n text-center" rowspan="1" colspan="2" i18nKey="report.head.agentWork.transferNum">转移数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.thirdTalkNum">三方通话数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.innerCallNum">内部呼叫数</th>
+				<th class="i18n" rowspan="2" i18nKey="report.head.agentWork.innerHelpNum">内部求助数</th>
+			</tr>
+			<tr class="info">
+				<th class="i18n" i18nKey="report.head.agentWork.signInNum">签入次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.signInTime">签入时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.talkNum">通话次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.talkTime">通话时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.talkNum">通话次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.talkTime">通话时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.num">次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.time">时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.num">次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.time">时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.num">次数</th>
+				<th class="i18n" i18nKey="report.head.agentWork.time">时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.withArrageTime">含整理时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.witoutArrageTime">不含整理时长</th>
+				<th class="i18n" i18nKey="report.head.agentWork.innerTransfer">内部转移</th>
+				<th class="i18n" i18nKey="report.head.agentWork.transferOut">转出</th>				
+			</tr>
+		</thead>
+		<tbody id="agentWorkReport_content">		
+
+		</tbody>
+	</table>
+</div>
+<script src="js/lib/My97DatePicker/WdatePicker.js"></script>
+
+

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huawei.agentconsole.dao.intf.ReportDao">
+    <resultMap id="vdnResultMap" type="com.huawei.agentconsole.bean.VdnTraffic">
+        <result column="STATTIME" property="statTime" jdbcType="VARCHAR" />
+        <result column="INBOUNDCALLS" property="inBoundCalls" jdbcType="INTEGER" />
+        <result column="ANSWEREDCALLS" property="answerdCalls" jdbcType="INTEGER" />
+        <result column="ANSWERRATE" property="answerRate" jdbcType="VARCHAR" />
+        <result column="IVRINBOUNDCALLS" property="ivrInBoundCalls" jdbcType="INTEGER" />
+        <result column="IVRANSWEREDCALLS" property="ivrAnswerdCalls" jdbcType="INTEGER" />
+        <result column="IVRANSWERRATE" property="ivrAnswerRate" jdbcType="VARCHAR" />
+        <result column="SKILLINBOUNDCALLS" property="skillInBoundCalls" jdbcType="INTEGER" />
+        <result column="SKILLANSWEREDCALLS" property="skillAnswerdCalls" jdbcType="INTEGER" />
+        <result column="SKILLANSWERRATE" property="skillAnswerRate" jdbcType="VARCHAR" />
+        <result column="AVGINBOUNDVDNTIME" property="avgInBoundVdnTime" jdbcType="VARCHAR" />
+        <result column="OUTBOUNDCALLS" property="outBoundCalls" jdbcType="INTEGER" />
+        <result column="OUTBOUNDANSWEREDCALLS" property="outBoundAnsweredCalls" jdbcType="INTEGER" />
+        <result column="OUTBOUNDIVRANSWERDCALLS" property="outBoundIVRAnsweredCalls" jdbcType="INTEGER" />
+        <result column="OUTBOUNDSKILLANSWEREDCALLS" property="outBoundSkillAnsweredCalls" jdbcType="INTEGER" />
+        <result column="AVGOUTBOUNDVDNTIME" property="avgOutBoundVdnTime" jdbcType="VARCHAR" />
+    </resultMap>
+     
+    <resultMap id="skillResultMap" type="com.huawei.agentconsole.bean.SkillTraffic">
+        <result column="I_TYPE" property="skillName" jdbcType="VARCHAR" />
+        <result column="OFFEREDCALLS" property="offeredCalls" jdbcType="INTEGER" />
+        <result column="ANSWEREDCALLS" property="answeredCalls" jdbcType="INTEGER" />
+        <result column="ANSWERRATE" property="answerRate" jdbcType="VARCHAR" />
+        <result column="LOSTCALLS" property="lostCalls" jdbcType="INTEGER" />
+        <result column="LOSTRATE" property="lostRate" jdbcType="VARCHAR" />
+        <result column="USERABANINQUEUE" property="userAbanInQueue" jdbcType="INTEGER" />
+        <result column="SYSABANCALLSINQUEUE" property="sysAbanCallsInQueue" jdbcType="INTEGER" />
+        <result column="USERABANINRING" property="userAbanInRing" jdbcType="INTEGER" />
+        <result column="SYSABANCALLSINRING" property="sysAbanCallsInRing" jdbcType="INTEGER" />
+        <result column="USERABANINRING" property="userAbanInRing" jdbcType="INTEGER" />
+        <result column="RINGREJECT" property="ringReject" jdbcType="INTEGER" />
+        <result column="SYSABANCALLSINRING" property="sysAbanCallsInRing" jdbcType="INTEGER" />
+        <result column="SYSSLARATE" property="sysSLARate" jdbcType="VARCHAR" />
+        <result column="LOSTINRING" property="lostInRing" jdbcType="INTEGER" />
+        <result column="RINGANSWERRATE" property="ringAnswerRate" jdbcType="VARCHAR" />
+        <result column="AVGANSWERQUEUETIME" property="avgAnsweredQueueTime" jdbcType="VARCHAR" />
+        <result column="AVGLOSTQUEUETIME" property="avgLostQueueTime" jdbcType="VARCHAR" />
+        <result column="AVGANSWERRINGINGTIME" property="avgAnseredRingingTime" jdbcType="VARCHAR" />
+        <result column="AVGLOSTRINGINGTIME" property="avgLostRingTime" jdbcType="VARCHAR" />
+        <result column="AVGWAITTIME" property="avgWaitTime" jdbcType="VARCHAR" />
+<!--         <result column="MAXQUEUETIME" property="maxQueueTime" jdbcType="VARCHAR" /> -->
+<!--         <result column="MINQUEUETIME" property="minQueueTime" jdbcType="VARCHAR" /> -->
+<!--         <result column="FLOWOUTTOQUEUE" property="flowOutToQueue" jdbcType="INTEGER" /> -->
+<!--         <result column="FLOWOUTQUEUETIME" property="flowOutToQueueTime" jdbcType="VARCHAR" /> -->
+<!--         <result column="FLOWOUTTOAGENT" property="flowOutToAgent" jdbcType="INTEGER" /> -->
+    </resultMap>
+    
+    <resultMap id="agentResultMap" type="com.huawei.agentconsole.bean.AgentTraffic">
+        <result column="AGENT_ID" property="agentId" jdbcType="VARCHAR" />
+        <result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" />
+        <result column="I_TYPE" property="skillName" jdbcType="VARCHAR" />
+        <result column="OFFERED_CALLS" property="offeredCalls" jdbcType="INTEGER" />
+        <result column="ANSWERED_CALLS" property="answeredCalls" jdbcType="INTEGER" />
+        <result column="LOSTRATE" property="lostRate" jdbcType="VARCHAR" />
+        <result column="LOST_CALLS" property="lostCalls" jdbcType="INTEGER" />
+        <result column="ABORT_IN_RING" property="abortInRing" jdbcType="INTEGER" />
+        <result column="ANSWER_RATE" property="answerRate" jdbcType="VARCHAR" />
+        <result column="ANSWERRATE_IN_SERVICELEVEL" property="answerRateInServiceLevel" jdbcType="VARCHAR" />
+        <result column="RING_OVERTIME" property="ringOverTime" jdbcType="INTEGER" />
+        <result column="RING_REJECT" property="ringReject" jdbcType="INTEGER" />
+        <result column="USER_ABAN_IN_SLA" property="userAbanInSLA" jdbcType="INTEGER" />
+        <result column="USER_ABAN_OVER_SLA" property="userAbanOverSLA" jdbcType="INTEGER" />
+        <result column="AVG_RINGTIME" property="avgRingTime" jdbcType="VARCHAR" />
+        <result column="AVG_TALKTIME" property="avgTalkTime" jdbcType="VARCHAR" />
+        <result column="MAX_TALKTIME" property="maxTalkTime" jdbcType="VARCHAR" />
+        <result column="MIN_TALKTIME" property="minTalkTime" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <resultMap id="agentWorkResultMap" type="com.huawei.agentconsole.bean.AgentWork">
+        <result column="AGENTID" property="agentId" jdbcType="VARCHAR" />
+        <result column="AGENT_NAME" property="agentName" jdbcType="VARCHAR" />
+        <result column="SKILLNAME" property="skillName" jdbcType="VARCHAR" />
+        <result column="LOGIN_TIMES" property="loginTimes" jdbcType="INTEGER" />
+        <result column="LOGIN_DURATION" property="loginDuration" jdbcType="VARCHAR" />
+        <result column="TALK_TIMES_CALLIN" property="callinTalkTimes" jdbcType="INTEGER" />
+        <result column="TALK_DURATION_CALLIN" property="callinTalkDuration" jdbcType="VARCHAR" />
+        <result column="TALK_TIMES_CALLOUT" property="calloutTalkTimes" jdbcType="INTEGER" />
+        <result column="TALK_DURATION_CALLOUT" property="calloutTalkDuration" jdbcType="VARCHAR" />
+        <result column="ARRANGE_TIMES" property="arrangeTimes" jdbcType="INTEGER" />
+        <result column="ARRANGE_DURATION" property="arrangeDuration" jdbcType="VARCHAR" />
+        <result column="REST_TIMES" property="restTimes" jdbcType="INTEGER" />
+        <result column="REST_DURATION" property="restDuration" jdbcType="VARCHAR" />
+        <result column="HOLD_TIMES" property="holdTimes" jdbcType="INTEGER" />
+        <result column="HOLD_DURATION" property="holdDuration" jdbcType="VARCHAR" />
+        <result column="BUSY_TIMES" property="busyTimes" jdbcType="INTEGER" />
+        <result column="BUSY_DURATION" property="busyDuration" jdbcType="VARCHAR" />
+        <result column="RING_TIME" property="ringDuration" jdbcType="VARCHAR" />
+        <result column="IDEL_TIME" property="idelTime" jdbcType="VARCHAR" />
+        <result column="WORK_TIME_USE_RATE_WITH_ACW" property="workTimeUseRateWithACW" jdbcType="VARCHAR" />
+        <result column="WORK_TIME_USE_RATE_WITHOUT_ACW" property="workTimeUseRateWithoutACW" jdbcType="VARCHAR" />
+        <result column="INTERNAL_TRANSFER_TIMES" property="internalTransferTimes" jdbcType="INTEGER" />
+        <result column="TRANSFER_OUT_TIMES" property="transferOutTimes" jdbcType="INTEGER" />
+        <result column="HANGUP_TO_IVR_TIMES" property="hangUpToIVRTimes" jdbcType="INTEGER" />
+        <result column="THREE_PARTY_CALLS" property="threePartyCalls" jdbcType="INTEGER" />
+        <result column="INTERNAL_CALLS" property="internalCalls" jdbcType="INTEGER" />
+        <result column="INTERNAL_HELP_TIMES" property="internalHelpTimes" jdbcType="INTEGER" />
+    </resultMap>
+    
+    
+    
+    <resultMap id="agentCallOutResultMap" type="com.huawei.agentconsole.bean.AgentCallOutBriefBean">
+        <result column="AGENTID" property="agentId" jdbcType="VARCHAR" />
+        <result column="AGENTNAME" property="agentName" jdbcType="VARCHAR" />
+        <result column="TIMESEGMENT" property="timeSegment" jdbcType="VARCHAR" />
+        <result column="OUTBOUNDCALLS" property="outBoundCalls" jdbcType="INTEGER" />
+        <result column="OUTBOUNDANSWERED" property="outBoundAnswered" jdbcType="INTEGER" />
+        <result column="OUTBOUNDABANDONED" property="outBoundAbandoned" jdbcType="INTEGER" />
+        <result column="OUTBOUNDANSWERRATE" property="outBoundAnswerRate" jdbcType="VARCHAR" />
+        <result column="OUTBOUNDTALKTIME" property="outBoundTalkTime" jdbcType="VARCHAR" />
+        <result column="AVGOUTBOUNDTALKTIME" property="avgOutBoundTalkTime" jdbcType="VARCHAR" />
+        <result column="MAXOUTBOUNDTALKTIME" property="maxOutBoundTalkTime" jdbcType="VARCHAR" />
+        <result column="MINOUTBOUNDTALKTIME" property="minOutBoundTalkTime" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    <select id="queryVdntraffic" statementType="CALLABLE"  parameterType="java.util.Map">
+        {call P_CONSOLE_VDNTRAFFIC(
+        #{result,jdbcType=CURSOR,mode=OUT,javaType=ResultSet, resultMap=vdnResultMap},
+        #{i_StartDate,mode=IN,jdbcType=VARCHAR},
+        #{i_EndDate,mode=IN,jdbcType=VARCHAR},
+        #{i_TimeUnit,mode=IN,jdbcType=INTEGER},
+        #{i_CCID_VDN,mode=IN,jdbcType=VARCHAR},
+        #{i_VDNUserName,mode=IN,jdbcType=VARCHAR},
+        #{i_RptType,mode=IN,jdbcType=INTEGER}
+        )}
+    </select>
+    
+    <!-- 技能话务量报表 -->
+    <select id="querySkillTraffic" statementType="CALLABLE"  parameterType="java.util.Map" >
+        {call P_CONSOLE_SKILLTRAFFIC(
+        #{result,jdbcType=CURSOR,mode=OUT,javaType=ResultSet,resultMap=skillResultMap},
+        #{i_StartDate,mode=IN,jdbcType=VARCHAR},
+        #{i_EndDate,mode=IN,jdbcType=VARCHAR},
+        #{i_TimeUnit,mode=IN,jdbcType=INTEGER},
+        #{i_SkillID,mode=IN,jdbcType=VARCHAR},
+        #{i_CCID,mode=IN,jdbcType=VARCHAR},
+        #{i_Type,mode=IN,jdbcType=INTEGER},
+        #{i_VDNUserName,mode=IN,jdbcType=VARCHAR},
+        #{i_RptType,mode=IN,jdbcType=INTEGER},
+        #{i_VDN,mode=IN,jdbcType=VARCHAR}
+        )}
+    </select>
+    
+    <!-- 话务员话务量报表 -->
+    <select id="queryAgentTraffic" statementType="CALLABLE"  parameterType="java.util.Map" >
+        {call P_CONSOLE_AGENTTRAFFIC(
+        #{result,jdbcType=CURSOR,mode=OUT,javaType=ResultSet,resultMap=agentResultMap},
+        #{i_StartDate,mode=IN,jdbcType=VARCHAR},
+        #{i_EndDate,mode=IN,jdbcType=VARCHAR},
+        #{i_TimeUnit,mode=IN,jdbcType=INTEGER},
+        #{i_Flag,mode=IN,jdbcType=INTEGER},
+        #{i_AgentGroup,mode=IN,jdbcType=VARCHAR},
+        #{i_AgentID,mode=IN,jdbcType=VARCHAR},
+        #{i_SkillID,mode=IN,jdbcType=VARCHAR},
+        #{i_CCID,mode=IN,jdbcType=VARCHAR},
+        #{i_VDNUserName,mode=IN,jdbcType=VARCHAR},
+        #{i_Type,mode=IN,jdbcType=INTEGER},
+        #{i_RptType,mode=IN,jdbcType=INTEGER},
+        #{i_VDN,mode=IN,jdbcType=VARCHAR}
+        )}
+    </select>
+    
+    <!-- 话务员接续报表 -->
+    <select id="queryAgentWork" statementType="CALLABLE"  parameterType="java.util.Map" >
+        {call P_CONSOLE_AGENTWORK(
+        #{result,jdbcType=CURSOR,mode=OUT,javaType=ResultSet,resultMap=agentWorkResultMap},
+        #{i_StartDate,mode=IN,jdbcType=VARCHAR},
+        #{i_EndDate,mode=IN,jdbcType=VARCHAR},
+        #{i_TimeUnit,mode=IN,jdbcType=INTEGER},
+        #{i_Flag,mode=IN,jdbcType=INTEGER},
+        #{i_AgentGroup,mode=IN,jdbcType=VARCHAR},
+        #{i_AgentID,mode=IN,jdbcType=VARCHAR},
+        #{i_VDNUserName,mode=IN,jdbcType=VARCHAR},
+        #{i_RptType,mode=IN,jdbcType=INTEGER},
+        #{i_VDN,mode=IN,jdbcType=VARCHAR}
+        )}
+    </select>
+    
+    <!-- 话务员外呼报表 -->
+    <select id="queryAgentCallOutBrief" statementType="CALLABLE"  parameterType="java.util.Map" >
+        {call P_CONSOLE_AGENTCALLOUTBRIEF(
+        #{result,jdbcType=CURSOR,mode=OUT,javaType=ResultSet,resultMap=agentCallOutResultMap},
+        #{i_StartDate,mode=IN,jdbcType=VARCHAR},
+        #{i_EndDate,mode=IN,jdbcType=VARCHAR},
+        #{i_TimeUnit,mode=IN,jdbcType=INTEGER},
+        #{i_Flag,mode=IN,jdbcType=INTEGER},
+        #{i_AgentWorkGroup,mode=IN,jdbcType=VARCHAR},
+        #{i_AgentID,mode=IN,jdbcType=INTEGER},
+        #{i_VDNUserName,mode=IN,jdbcType=VARCHAR},
+        #{i_RptType,mode=IN,jdbcType=INTEGER},
+        #{i_VDN,mode=IN,jdbcType=INTEGER}
+        
+        )}
+    </select>
+</mapper>
